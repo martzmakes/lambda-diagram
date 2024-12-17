@@ -1,14 +1,5 @@
-# Welcome to your CDK TypeScript project
+# lambda-mermaid
 
-This is a blank project for CDK development with TypeScript.
+Companion code for a blog post about using a lambda to render @mermaid-js and storing them in S3.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
-
-## Useful commands
-
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+Uses @puppeteer, @mermaid-js, AWS CDK and Lambda
