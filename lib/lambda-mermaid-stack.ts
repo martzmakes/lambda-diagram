@@ -25,17 +25,36 @@ export class LambdaMermaidStack extends MMStack {
     });
 
     new Lambda(this, "MermaidLambda", {
-      entry: join(__dirname, `../lambda/event/mermaid.ts`),
+      entry: join(__dirname, `./fns/mermaid.ts`),
       eventPattern: {
         source: [this.eventSource],
         detailType: ["mermaid"],
       },
       name: "mermaid",
       architecture: Architecture.X86_64, // puppeteer needs x86_64
+      bundling: {
+        externalModules: [],
+      },
       memorySize: 10240,
-      environment: {},
       buckets: {
-        BUCKET: { bucket: mermaidBucket, access: "rw" },
+        BUCKET_NAME: { bucket: mermaidBucket, access: "rw" },
+      },
+    });
+
+    new Lambda(this, "DrawIOLambda", {
+      entry: join(__dirname, `./fns/drawio.ts`),
+      eventPattern: {
+        source: [this.eventSource],
+        detailType: ["drawio"],
+      },
+      bundling: {
+        externalModules: [],
+      },
+      name: "drawio",
+      architecture: Architecture.X86_64, // puppeteer needs x86_64
+      memorySize: 10240,
+      buckets: {
+        BUCKET_NAME: { bucket: mermaidBucket, access: "rw" },
       },
     });
   }

@@ -94,7 +94,7 @@ const eventHandler: EventHandler<{
   });
 
   const key = `${Date.now()}-${title}.png`;
-  const presignedUrl = await uploadImageToS3AndGetPresignedUrl(key, buffer);
+  const presignedUrl = await uploadImageToS3AndGetPresignedUrl({ key, buffer });
   console.log(JSON.stringify({ presignedUrl }));
 };
 

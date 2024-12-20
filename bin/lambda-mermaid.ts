@@ -3,7 +3,7 @@ import { App } from 'aws-cdk-lib';
 import { LambdaMermaidStack } from '../lib/lambda-mermaid-stack';
 import { stackProps } from "@martzmakes/constructs/cdk/bin/props";
 
-const mermaidStackProps = stackProps({ baseStackName: "mermaid", envName: "main" });
+const mermaidStackProps = stackProps({ baseStackName: "mermaid", envName: "main", eventSource: "martzmakes" });
 
 const app = new App();
 new LambdaMermaidStack(app, 'LambdaMermaidStack', {
