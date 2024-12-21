@@ -1,5 +1,5 @@
 {
-  "app": "npx ts-node --prefer-ts-exts bin/lambda-mermaid.ts",
+  "app": "npx ts-node --prefer-ts-exts bin/lambda-diagram.ts",
   "watch": {
     "include": [
       "**"
