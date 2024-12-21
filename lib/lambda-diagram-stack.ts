@@ -7,10 +7,10 @@ import { Bucket, BlockPublicAccess, ObjectOwnership } from "aws-cdk-lib/aws-s3";
 import { Architecture } from "aws-cdk-lib/aws-lambda";
 import { join } from "path";
 
-export class LambdaMermaidStack extends MMStack {
+export class LambdaDiagramStack extends MMStack {
   constructor(scope: Construct, id: string, props: MMStackProps) {
     super(scope, id, props);
-    const mermaidBucket = new Bucket(this, "MermaidBucket", {
+    const diagramBucket = new Bucket(this, "DiagramBucket", {
       blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
       removalPolicy: RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
@@ -37,7 +37,7 @@ export class LambdaMermaidStack extends MMStack {
       },
       memorySize: 10240,
       buckets: {
-        BUCKET_NAME: { bucket: mermaidBucket, access: "rw" },
+        BUCKET_NAME: { bucket: diagramBucket, access: "rw" },
       },
     });
 
@@ -54,7 +54,7 @@ export class LambdaMermaidStack extends MMStack {
       architecture: Architecture.X86_64, // puppeteer needs x86_64
       memorySize: 10240,
       buckets: {
-        BUCKET_NAME: { bucket: mermaidBucket, access: "rw" },
+        BUCKET_NAME: { bucket: diagramBucket, access: "rw" },
       },
     });
   }

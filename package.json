@@ -1,8 +1,8 @@
 {
-  "name": "lambda-mermaid",
+  "name": "lambda-diagram",
   "version": "0.1.0",
   "bin": {
-    "lambda-mermaid": "bin/lambda-mermaid.js"
+    "lambda-diagram": "bin/lambda-diagram.js"
   },
   "scripts": {
     "build": "tsc",
